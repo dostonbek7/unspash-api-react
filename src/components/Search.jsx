@@ -14,7 +14,7 @@ function Search({setNewUrl}) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" ref={searchText} />
+      <input placeholder="Write here..." type="text" ref={searchText} />
       <button>Search</button>
     </form>
   );

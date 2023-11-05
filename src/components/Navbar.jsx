@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom"
-import { GlobalContext } from "../context/GlobalState"
-import { useContext } from "react"
+import { useGlobalContext } from "../hooks/useGlobalContext"
 
 
 function Navbar() {
-  const {likedImages} = useContext(GlobalContext)
+  const {likedImages, changeMode, mode} = useGlobalContext()
+
+  const changeGlobalMode = ()=>{
+    const newMode = mode === 'light' ? 'dark' : 'light'
+    changeMode(newMode)
+  }
+
 
   return (
     <div className="navbar container">
@@ -16,8 +21,9 @@ function Navbar() {
        <Link to="/likedimages">
        Like ❤️ :
         <span>{likedImages.length}</span>
-
         </Link>
+        <Link to='/login'>Login</Link>
+         <button className="mode-btn" onClick={changeGlobalMode}>Change Mode</button>
        </nav>
     </div>
   )
