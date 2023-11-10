@@ -1,32 +1,16 @@
-import { Link } from "react-router-dom"
-import { useGlobalContext } from "../hooks/useGlobalContext"
-
+import { Link } from "react-router-dom";
 
 function Navbar() {
-  const {likedImages, changeMode, mode} = useGlobalContext()
-
-  const changeGlobalMode = ()=>{
-    const newMode = mode === 'light' ? 'dark' : 'light'
-    changeMode(newMode)
-  }
-
-
   return (
-    <div className="navbar container">
-       <h3 className="logo">Unsplash</h3>
-       <nav>
-       <Link to="/">Home</Link>
-       <Link to="/about">About</Link>
-       <Link to="/contact">Contact</Link>
-       <Link to="/likedimages">
-       Like ❤️ :
-        <span>{likedImages.length}</span>
-        </Link>
-        <Link to='/login'>Login</Link>
-         <button className="mode-btn" onClick={changeGlobalMode}>Change Mode</button>
-       </nav>
-    </div>
-  )
+    <header className="navbar bg-base-100">
+      <div className="site-container flex justify-between items-center w-full">
+      <Link to="/" className="btn btn-ghost normal-case text-xl">
+        Where in the world?
+      </Link>
+      <div className="btn btn-success">Clik</div>
+      </div>
+    </header>
+  );
 }
 
-export default Navbar
+export default Navbar;
